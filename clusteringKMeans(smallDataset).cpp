@@ -1,3 +1,4 @@
+// Clustering using UNION-FIND Data Structure
 #include<iostream>
 #include<vector>
 #include<queue>
@@ -8,13 +9,13 @@ void make_set(int x)
     leader.push_back(x);
     Rank.push_back(0);
 }
-int Find(int x){
+int Find(int x){           //FIND
     int temp;
     while(leader[x]!=x)
         x = leader[x];
     return x;
 }
-void Union(int x, int y)
+void Union(int x, int y)       //UNION
 {
     int s1=Find(x),s2=Find(y);
     if(Rank[s1]>Rank[s2])
@@ -36,7 +37,7 @@ int main(){
     k = nsize;
     priority_queue<pair<int,pair<int, int>>, vector< pair<int,pair<int, int>> >, greater< pair<int,pair<int, int>> > > pq;
     for(long int i=1;i<=nsize;i++)
-        make_set(i);
+        make_set(i);                    //Intialise with set
     for(long int i=0;i<nsize*(nsize-1)/2 ; i++)
     {
         int x,y,z;
